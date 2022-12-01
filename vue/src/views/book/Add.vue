@@ -33,8 +33,8 @@
       <el-form-item label="Book Code" prop="bookNo">
         <el-input v-model="form.bookNo" placeholder="Input the Book Code"></el-input>
       </el-form-item>
-      <el-form-item label="Score" prop="cover">
-        <el-input-number v-model="form.score" :min="10" :max="30" label="Score Needed"></el-input-number>
+      <el-form-item label="Point" prop="cover">
+        <el-input-number v-model="form.score" :min="10" :max="30" label="Point Needed"></el-input-number>
       </el-form-item>
       <el-form-item label="Quantity" prop="nums">
         <el-input v-model="form.nums" placeholder="Input the Quantity"></el-input>

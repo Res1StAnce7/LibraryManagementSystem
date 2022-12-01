@@ -7,12 +7,12 @@
       <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Reset</el-button>
     </div>
 
-    <el-table :data="tableData" stripe row-key="id"  default-expand-all>
+    <el-table :data="tableData" stripe row-key="id" empty-text=" " default-expand-all>
       <el-table-column prop="id" label="ID" width="80"></el-table-column>
       <el-table-column prop="name" label="Name"></el-table-column>
       <el-table-column prop="remark" label="Comment"></el-table-column>
-      <el-table-column prop="createTime" label="Time of Creation"></el-table-column>
-      <el-table-column prop="updateTime" label="Time of Update"></el-table-column>
+      <el-table-column prop="createtime" label="Time of Creation"></el-table-column>
+      <el-table-column prop="updatetime" label="Time of Update"></el-table-column>
       <el-table-column label="Operation" width="280">
         <template v-slot="scope">
           <el-button type="success" v-if="!scope.row.pid" @click="handleAdd(scope.row)">Add Sub Category</el-button>
@@ -145,5 +145,7 @@ export default {
 </script>
 
 <style scoped>
-
+.className :empty::before {
+  content: " ";
+}
 </style>

@@ -5,8 +5,8 @@
       <el-form-item label="User Name" prop="username">
         <el-input v-model="form.username" placeholder="Input the name"></el-input>
       </el-form-item>
-      <el-form-item label="Contact Information" prop="phone">
-        <el-input v-model="form.phone" placeholder="Input contact information"></el-input>
+      <el-form-item label="Phone" prop="phone">
+        <el-input v-model="form.phone" placeholder="Input the phone"></el-input>
       </el-form-item>
       <el-form-item label="Email" prop="email">
         <el-input v-model="form.email" placeholder="Input the email"></el-input>

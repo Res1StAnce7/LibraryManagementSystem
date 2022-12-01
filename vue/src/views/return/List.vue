@@ -15,9 +15,9 @@
       <el-table-column prop="bookNo" label="Book Code"></el-table-column>
       <el-table-column prop="userNo" label="UserID"></el-table-column>
       <el-table-column prop="userName" label="User Name"></el-table-column>
-      <el-table-column prop="userPhone" label="User Contact Information"></el-table-column>
-      <el-table-column prop="score" label="Score"></el-table-column>
-      <el-table-column prop="createTime" label="Date of Borrowing"></el-table-column>
+      <el-table-column prop="userPhone" label="Phone"></el-table-column>
+      <el-table-column prop="score" label="Point"></el-table-column>
+      <el-table-column prop="createtime" label="Date of Borrowing"></el-table-column>
       <el-table-column prop="status" label="Borrowing Status"></el-table-column>
       <el-table-column prop="days" label="Days of Borrowing"></el-table-column>
       <el-table-column prop="returnDate" label="Date of Return"></el-table-column>

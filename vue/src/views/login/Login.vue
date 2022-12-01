@@ -13,9 +13,9 @@
       ></slide-verify>
     </el-card>
 
-      <div style="width: 500px; height: 400px; background-color: white; border-radius: 10px;
+      <div style="width: 550px; height: 400px; background-color: white; border-radius: 10px;
         margin: 150px auto; padding:50px">
-        <div style="margin: 30px; text-align: center; font-size: 30px; font-weight: bold; color: dodgerblue">Login</div>
+        <div style="margin: 30px; text-align: center; font-size: 30px; font-weight: bold; color: dodgerblue">Book Management System</div>
         <el-form :model="admin" :rules="rules" ref="loginForm">
           <el-form-item prop="username">
             <el-input placeholder="Input your username" prefix-icon="el-icon-user" size="medium" v-model="admin.username"></el-input>

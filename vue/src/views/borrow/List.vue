@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!--    搜索表单-->
+    <!--    Search List-->
     <div style="margin-bottom: 20px">
       <el-input style="width: 240px" placeholder="Input the book name" v-model="params.bookName"></el-input>
       <el-input style="width: 240px; margin-left: 5px" placeholder="Input the book code" v-model="params.bookNo"></el-input>
@@ -9,19 +9,19 @@
       <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Reset</el-button>
     </div>
 
-    <el-table :data="tableData" stripe row-key="id"  default-expand-all>
-      <el-table-column prop="id" label="ID" width="80"></el-table-column>
-      <el-table-column prop="bookName" label="Book Name"></el-table-column>
-      <el-table-column prop="bookNo" label="Book Code"></el-table-column>
-      <el-table-column prop="userNo" label="User ID"></el-table-column>
-      <el-table-column prop="userName" label="User Name"></el-table-column>
-      <el-table-column prop="userPhone" label="User Contact Information"></el-table-column>
-      <el-table-column prop="score" label="Score Needed"></el-table-column>
-      <el-table-column prop="createTime" label="Time of Days Book Lent"></el-table-column>
-      <el-table-column prop="status" label="Borrowing Status"></el-table-column>
-      <el-table-column prop="days" label="Number of Days Book Lent"></el-table-column>
-      <el-table-column prop="returnDate" label="Date of Returning"></el-table-column>
-      <el-table-column prop="note" label="Expiration Notification">
+    <el-table :data="tableData" stripe row-key="id" empty-text=" " default-expand-all>
+      <el-table-column prop="id" label="ID" width="60"></el-table-column>
+      <el-table-column prop="bookName" label="BookName"></el-table-column>
+      <el-table-column prop="bookNo" label="Code"></el-table-column>
+      <el-table-column prop="userNo" label="UserID"></el-table-column>
+      <el-table-column prop="userName" label="Name"></el-table-column>
+      <el-table-column prop="userPhone" label="Phone"></el-table-column>
+      <el-table-column prop="score" label="PointNeeded"></el-table-column>
+      <el-table-column prop="createtime" label="TimeLent"></el-table-column>
+      <el-table-column prop="status" label="Status"></el-table-column>
+      <el-table-column prop="days" label="DaysLent"></el-table-column>
+      <el-table-column prop="returnDate" label="DateReturning"></el-table-column>
+      <el-table-column prop="note" label="Expiration">
         <template v-slot="scope">
           <el-tag type="success" v-if="scope.row.note === 'Normal'">{{ scope.row.note }}</el-tag>
           <el-tag type="primary" v-if="scope.row.note === 'About to Expire'">{{ scope.row.note }}</el-tag>

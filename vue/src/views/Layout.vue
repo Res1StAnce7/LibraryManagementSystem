@@ -2,7 +2,7 @@
   <div>
     <div style="height: 60px; line-height: 60px; background-color: white; margin-bottom: 2px; display: flex">
       <div style="width: 600px">
-        <img src="@/assets/logo.png" alt="" style="width: 40px; position: relative; top: 10px; left: 20px">
+        <img src="@/assets/logo.jpg" alt="" style="width: 40px; position: relative; top: 10px; left: 20px">
         <span style="margin-left: 25px; font-size: 24px">Book Management System</span>
       </div>
       <div style="flex: 1; text-align: right; padding-right: 20px">
@@ -63,8 +63,8 @@
               <i class="el-icon-document-copy"></i>
               <span>Book Borrowing Management</span>
             </template>
-            <el-menu-item index="/addBorrow">Add Borrowing </el-menu-item>
-            <el-menu-item index="/borrowList">Borrowing List</el-menu-item>
+            <el-menu-item index="/addBorrow">Add Book</el-menu-item>
+            <el-menu-item index="/borrowList">Book List</el-menu-item>
           </el-submenu>
           <el-submenu index="return">
             <template slot="title">

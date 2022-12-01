@@ -12,11 +12,11 @@
         <el-radio v-model="form.gender"  label="Male">Male</el-radio>
         <el-radio v-model="form.gender"  label="Female">Female</el-radio>
       </el-form-item>
-      <el-form-item label="Contact" prop="phone">
-        <el-input v-model="form.phone" placeholder="Input your contact information"></el-input>
+      <el-form-item label="Phone" prop="phone">
+        <el-input v-model="form.phone" placeholder="Input the "></el-input>
       </el-form-item>
       <el-form-item label="Address" prop="address">
-        <el-input v-model="form.address" placeholder="Input your address"></el-input>
+        <el-input v-model="form.address" placeholder="Input the address"></el-input>
       </el-form-item>
     </el-form>
 

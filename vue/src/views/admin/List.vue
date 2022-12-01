@@ -3,19 +3,19 @@
     <!--    Search List-->
     <div style="margin-bottom: 20px">
       <el-input style="width: 240px" placeholder="Input the username" v-model="params.username"></el-input>
-      <el-input style="width: 240px; margin-left: 5px" placeholder="Input the contact information" v-model="params.phone"></el-input>
+      <el-input style="width: 240px; margin-left: 5px" placeholder="Input the phone number" v-model="params.phone"></el-input>
       <el-input style="width: 240px; margin-left: 5px" placeholder="Input the email" v-model="params.email"></el-input>
       <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> Search</el-button>
       <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Reset</el-button>
     </div>
 
-    <el-table :data="tableData" stripe>
+    <el-table :data="tableData" stripe empty-text=" ">
       <el-table-column prop="id" label="ID" width="80"></el-table-column>
       <el-table-column prop="username" label="Username"></el-table-column>
-      <el-table-column prop="phone" label="Contact"></el-table-column>
+      <el-table-column prop="phone" label="Phone"></el-table-column>
       <el-table-column prop="email" label="Email"></el-table-column>
-      <el-table-column prop="createTime" label="Time of Creation"></el-table-column>
-      <el-table-column prop="updateTime" label="Time of Update"></el-table-column>
+      <el-table-column prop="createtime" label="Time of Creation"></el-table-column>
+      <el-table-column prop="updatetime" label="Time of Update"></el-table-column>
       <el-table-column label="Status" width="230">
         <template v-slot="scope">
           <el-switch

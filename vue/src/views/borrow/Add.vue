@@ -15,7 +15,7 @@
       <el-form-item label="Book Name" prop="bookName">
         <el-input v-model="form.bookName" disabled></el-input>
       </el-form-item>
-      <el-form-item label="Score Needed" prop="score">
+      <el-form-item label="Point Needed" prop="score">
         <el-input v-model="form.score" disabled></el-input>
       </el-form-item>
       <el-form-item label="Book Quantity" prop="nums">
@@ -35,10 +35,10 @@
       <el-form-item label="Username" prop="userName">
         <el-input disabled v-model="form.userName"></el-input>
       </el-form-item>
-      <el-form-item label="User Contact Information" prop="userPhone">
+      <el-form-item label="User Phone Number" prop="userPhone">
         <el-input disabled v-model="form.userPhone" ></el-input>
       </el-form-item>
-      <el-form-item label="User Score" prop="account">
+      <el-form-item label="User Points" prop="account">
         <el-input disabled v-model="form.account" ></el-input>
       </el-form-item>
       <el-form-item label="Number of Days Book Lent" prop="days">

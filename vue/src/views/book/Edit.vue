@@ -32,8 +32,8 @@
       <el-form-item label="Book Code" prop="bookNo">
         <el-input v-model="form.bookNo" placeholder="Input Book Code"></el-input>
       </el-form-item>
-      <el-form-item label="Score" prop="cover">
-        <el-input-number v-model="form.score" :min="10" :max="30" label="Score Needed"></el-input-number>
+      <el-form-item label="Point" prop="cover">
+        <el-input-number v-model="form.score" :min="10" :max="30" label="Point Needed"></el-input-number>
       </el-form-item>
       <br>
       <el-form-item label="Cover" prop="cover">
@@ -68,13 +68,13 @@ export default {
       categories: [],
       rules: {
         name: [
-          { required: true, message: '请输入图书名称', trigger: 'blur'}
+          { required: true, message: 'Input the book name', trigger: 'blur'}
         ],
         bookNo: [
-          { required: true, message: '请输入图书标准码', trigger: 'blur'}
+          { required: true, message: 'Input the book codee', trigger: 'blur'}
         ],
         score: [
-          { required: true, message: '请输入借书积分', trigger: 'blur'}
+          { required: true, message: 'Input the book point', trigger: 'blur'}
         ]
       }
     }

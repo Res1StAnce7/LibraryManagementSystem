@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLOutput;
 import java.util.Date;
 import java.util.List;
 
@@ -91,6 +90,7 @@ public class AdminService implements ImplAdminService {
 
         String securePass = securePass(request.getPassword());
         if (!securePass.equals(admin.getPassword())) {
+            System.out.println(securePass);
             System.out.println("securePass: " + securePass);
             System.out.println("admin.getPassword(): " + admin.getPassword());
             throw new ServiceException("Wrong username or password");
