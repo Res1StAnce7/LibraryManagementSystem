@@ -70,7 +70,7 @@ const routes = [
   },
   {
     path: "*",
-    component:() => import('@/views/404')
+    component:() => import('@/views/PageNotFound.vue')
   }
 ]
 

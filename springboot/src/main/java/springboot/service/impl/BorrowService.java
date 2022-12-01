@@ -52,14 +52,14 @@ public class BorrowService implements ImplBorrowService {
         for (Borrow borrow : borrows) {
             LocalDate returnDate = borrow.getReturnDate();
             LocalDate now = LocalDate.now();
-            if (now.plusDays(1).isEqual(returnDate)) {  // 当前日期比归还的日期小一天
-                borrow.setNote("即将到期");
+            if (now.plusDays(1).isEqual(returnDate)) {
+                borrow.setNote("About to expire");
             } else if (now.isEqual(returnDate)) {
-                borrow.setNote("已到期");
+                borrow.setNote("Expired");
             } else if (now.isAfter(returnDate)) {
-                borrow.setNote("已过期");
+                borrow.setNote("Expired");
             } else {
-                borrow.setNote("正常");
+                borrow.setNote("Normal");
             }
         }
         return new PageInfo<>(borrows);
@@ -68,26 +68,23 @@ public class BorrowService implements ImplBorrowService {
     @Override
     @Transactional
     public void save(Borrow obj) {
-        // 1. 校验用户的积分是否足够
         String userNo = obj.getUserNo();
         User user = userMapper.getByUsername(userNo);
         if (Objects.isNull(user)) {
-            throw new ServiceException("用户不存在");
+            throw new ServiceException("User does not exist");
         }
-        // 2. 校验图书的数量是否足够
         Book book = bookMapper.getByNo(obj.getBookNo());
         if (Objects.isNull(book)) {
-            throw new ServiceException("所借图书不存在");
+            throw new ServiceException("Book does not exist");
         }
-        // 3. 校验图书数量
         if (book.getNums() < 1) {
-            throw new ServiceException("图书数量不足");
+            throw new ServiceException("Book is out of stock");
         }
         Integer account = user.getAccount();
-        Integer score = book.getScore() * obj.getDays();  // score = 借1本的积分 * 天数
+        Integer score = book.getScore() * obj.getDays();
         // 4. 校验用户账户余额
         if (score > account) {
-            throw new ServiceException("用户积分不足");
+            throw new ServiceException("Insufficient account balance");
         }
         // 5. 更新用户余额
         user.setAccount(user.getAccount() - score);
@@ -111,29 +108,24 @@ public class BorrowService implements ImplBorrowService {
     @Override
     public void saveReturn(Return obj) {
         obj.setStatus("Returned");
-        borrowMapper.updateStatus("已归还", obj.getId());  // obj.getId() 是前端传来的借书id
-//        obj.setId(null);  // 新数据
+        borrowMapper.updateStatus("Returned", obj.getId());
         obj.setRealDate(LocalDate.now());
         borrowMapper.saveRetur(obj);
-
-        // 图书数量增加
         bookMapper.updateNumByNo(obj.getBookNo());
 
-        // 返还和扣除用户积分
         Book book = bookMapper.getByNo(obj.getBookNo());
         if (book != null) {
             long until = 0;
             if (obj.getRealDate().isBefore(obj.getReturnDate())) {
                 until = obj.getRealDate().until(obj.getReturnDate(), ChronoUnit.DAYS);
-            } else if (obj.getRealDate().isAfter(obj.getReturnDate())) {  // 逾期归还，要扣额外的积分
+            } else if (obj.getRealDate().isAfter(obj.getReturnDate())) {
                 until = -obj.getReturnDate().until(obj.getRealDate(), ChronoUnit.DAYS);
             }
-            int score = (int) until * book.getScore();  // 获取待归还的积分
+            int score = (int) until * book.getScore();
             User user = userMapper.getByUsername(obj.getUserNo());
             int account = user.getAccount() + score;
             user.setAccount(account);
             if (account < 0) {
-                // 锁定账号
                 user.setStatus(false);
             }
             userMapper.updateById(user);

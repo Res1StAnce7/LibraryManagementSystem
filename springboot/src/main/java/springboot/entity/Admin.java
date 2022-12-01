@@ -10,7 +10,7 @@ public class Admin {
 
     private String username;
 
-    private String adminContact;
+    private String adminPhone;
 
     private String email;
 

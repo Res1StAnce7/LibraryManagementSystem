@@ -6,7 +6,7 @@
       <el-input style="width: 240px; margin-left: 5px" placeholder="Input book code" v-model="params.bookNo"></el-input>
       <el-input style="width: 240px; margin-left: 5px" placeholder="Input username" v-model="params.userName"></el-input>
       <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> Search</el-button>
-      <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Rest</el-button>
+      <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Reset</el-button>
     </div>
 
     <el-table :data="tableData" stripe row-key="id"  default-expand-all>

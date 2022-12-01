@@ -28,7 +28,6 @@ public class CategoryService implements ImplCategoryService {
     @Override
     public PageInfo<Category> page(BaseRequest baseRequest) {
         PageHelper.startPage(baseRequest.getPageNum(), baseRequest.getPageSize());
-        // 自关联查询
         List<Category> categories = categoryMapper.listByCondition(baseRequest);
         return new PageInfo<>(categories);
     }

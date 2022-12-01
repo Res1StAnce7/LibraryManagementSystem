@@ -16,7 +16,7 @@ public class Borrow {
 
     private String userName;
 
-    private String userContact;
+    private String userPhone;
 
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private LocalDate createtime;
