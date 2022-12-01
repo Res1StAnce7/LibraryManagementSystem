@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="height: 60px; line-height: 60px; background-color: white; margin-bottom: 2px; display: flex">
-      <div style="width: 300px">
+      <div style="width: 600px">
         <img src="@/assets/logo.png" alt="" style="width: 40px; position: relative; top: 10px; left: 20px">
         <span style="margin-left: 25px; font-size: 24px">Book Management System</span>
       </div>
@@ -53,7 +53,7 @@
           <el-submenu index="book">
             <template slot="title">
               <i class="el-icon-notebook-1"></i>
-              <span>Book Management</span>
+              <span>Book Management System</span>
             </template>
             <el-menu-item index="/addBook">Add Book</el-menu-item>
             <el-menu-item index="/bookList">Book List</el-menu-item>
