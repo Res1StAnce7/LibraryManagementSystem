@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="margin: 20px 0">
-      <el-select class="input" v-model="timeRange" placeholder="请选择" @change="load">
+      <el-select class="input" v-model="timeRange" placeholder="Please select" @change="load">
         <el-option
             v-for="item in options"
             :key="item.value"
@@ -23,13 +23,13 @@ import * as echarts from 'echarts'
 
 const option = {
   title: {
-    text: '图书借还统计'
+    text: 'Book Borrowing and Returning Statistics'
   },
   tooltip: {
     trigger: 'axis'
   },
   legend: {
-    data: ['借书数量', '还书数量']
+    data: ['Number of Borrowing', 'Number of Returning']
   },
   grid: {
     left: '3%',
@@ -52,14 +52,14 @@ const option = {
   },
   series: [
     {
-      name: '借书数量',
+      name: 'Number of Borrowing',
       type: 'line',
       stack: 'Total',
       smooth: true,
       data: []
     },
     {
-      name: '还书数量',
+      name: 'Number of Returning',
       type: 'line',
       stack: 'Total',
       smooth: true,
@@ -75,10 +75,10 @@ const option = {
         lineBox: null,
         timeRange: 'week',
         options: [
-          {label: '最近一周', value: 'week'},
-          {label: '最近一个月', value: 'month'},
-          {label: '最近两个月', value: 'month2'},
-          {label: '最近三个月', value: 'month3'},
+          {label: 'Past Week', value: 'week'},
+          {label: 'Past Month', value: 'month'},
+          {label: 'Past Two Months', value: 'month2'},
+          {label: 'Past Three Months', value: 'month3'},
         ]
       }
     },
@@ -93,7 +93,7 @@ const option = {
         request.get('/borrow/lineCharts/' + this.timeRange).then(res => {
           option.xAxis.data = res.data.date
           option.series[0].data = res.data.borrow
-          option.series[1].data = res.data.retur
+          option.series[1].data = res.data.return
           this.lineBox.setOption(option)
         })
       }

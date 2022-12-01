@@ -1,15 +1,15 @@
 <template>
   <div>
     <div style="margin-bottom: 20px">
-      <el-input style="width: 240px" placeholder="Please input your name" v-model="params.name"></el-input>
-      <el-input style="width: 240px; margin-left: 5px" placeholder="Please input your contact information" v-model="params.phone"></el-input>
+      <el-input style="width: 240px" placeholder="Input your name" v-model="params.name"></el-input>
+      <el-input style="width: 240px; margin-left: 5px" placeholder="Input your contact information" v-model="params.phone"></el-input>
       <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> Search</el-button>
       <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Rest</el-button>
     </div>
 
     <el-table :data="tableData" stripe>
       <el-table-column prop="id" label="id" width="80"></el-table-column>
-      <el-table-column prop="username" label="CardID"></el-table-column>
+      <el-table-column prop="username" label="Username"></el-table-column>
       <el-table-column prop="name" label="Name"></el-table-column>
       <el-table-column prop="age" label="Age"></el-table-column>
       <el-table-column prop="address" label="Address"></el-table-column>
@@ -100,7 +100,7 @@ export default {
       form: {},
       rules: {
         score: [
-          { required: true, message: 'Please input the socre', trigger: 'blur'},
+          { required: true, message: 'Input the score', trigger: 'blur'},
           { validator: checkNums, trigger: 'blur'}
         ]
       }

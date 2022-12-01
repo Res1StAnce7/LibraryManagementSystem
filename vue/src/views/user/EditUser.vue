@@ -6,19 +6,19 @@
         <el-input v-model="form.username" disabled></el-input>
       </el-form-item>
       <el-form-item label="Name">
-        <el-input v-model="form.name" placeholder="Please input your name"></el-input>
+        <el-input v-model="form.name" placeholder="Input your name"></el-input>
       </el-form-item>
       <el-form-item label="Age">
-        <el-input v-model="form.age" placeholder="Please input your age"></el-input>
+        <el-input v-model="form.age" placeholder="Input your age"></el-input>
       </el-form-item>
       <el-form-item label="Gender">
-        <el-input v-model="form.gender" placeholder="Please input your gender"></el-input>
+        <el-input v-model="form.gender" placeholder="Input your gender"></el-input>
       </el-form-item>
       <el-form-item label="Contact">
-        <el-input v-model="form.phone" placeholder="Please input your contact information"></el-input>
+        <el-input v-model="form.phone" placeholder="Input your contact information"></el-input>
       </el-form-item>
       <el-form-item label="Address">
-        <el-input v-model="form.address" placeholder="Please input your address"></el-input>
+        <el-input v-model="form.address" placeholder="Input your address"></el-input>
       </el-form-item>
     </el-form>
 

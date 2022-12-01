@@ -2,55 +2,55 @@
   <div style="width: 80%">
     <div style="margin-bottom: 30px">编辑图书</div>
     <el-form :inline="true" :rules="rules" ref="ruleForm" :model="form" label-width="100px">
-      <el-form-item label="名称" prop="name">
-        <el-input v-model="form.name" placeholder="请输入名称"></el-input>
+      <el-form-item label="name" prop="name">
+        <el-input v-model="form.name" placeholder="Input the name"></el-input>
       </el-form-item>
-      <el-form-item label="描述" prop="description">
-        <el-input style="width: 400px" type="textarea" v-model="form.description" placeholder="请输入描述"></el-input>
+      <el-form-item label="Description" prop="description">
+        <el-input style="width: 400px" type="textarea" v-model="form.description" placeholder="Input the description"></el-input>
       </el-form-item>
-      <el-form-item label="出版日期" prop="publishDate">
+      <el-form-item label="Date of Publish" prop="publishDate">
         <el-date-picker
             v-model="form.publishDate"
             type="date"
             value-format="yyyy-MM-dd"
-            placeholder="请选择出版日期">
+            placeholder="Select date of publish">
         </el-date-picker>
       </el-form-item>
-      <el-form-item label="作者" prop="author">
-        <el-input v-model="form.author" placeholder="请输入作者"></el-input>
+      <el-form-item label="Author" prop="author">
+        <el-input v-model="form.author" placeholder="Input the author"></el-input>
       </el-form-item>
-      <el-form-item label="出版社" prop="publisher">
-        <el-input v-model="form.publisher" placeholder="请输入出版社"></el-input>
+      <el-form-item label="Publisher" prop="publisher">
+        <el-input v-model="form.publisher" placeholder="Input the publisher"></el-input>
       </el-form-item>
-      <el-form-item label="分类" prop="category">
+      <el-form-item label="Category" prop="category">
         <el-cascader
             style="width: 220px"
             :props="{ value: 'name', label: 'name'}"
             v-model="form.categories"
             :options="categories"></el-cascader>
       </el-form-item>
-      <el-form-item label="标准码" prop="bookNo">
-        <el-input v-model="form.bookNo" placeholder="请输入标准码"></el-input>
+      <el-form-item label="Book Code" prop="bookNo">
+        <el-input v-model="form.bookNo" placeholder="Input Book Code"></el-input>
       </el-form-item>
-      <el-form-item label="借书积分" prop="cover">
-        <el-input-number v-model="form.score" :min="10" :max="30" label="所需积分"></el-input-number>
+      <el-form-item label="Score" prop="cover">
+        <el-input-number v-model="form.score" :min="10" :max="30" label="Score Needed"></el-input-number>
       </el-form-item>
       <br>
-      <el-form-item label="封面" prop="cover">
+      <el-form-item label="Cover" prop="cover">
         <el-upload
             class="avatar-uploader"
             :action="'http://localhost:9090/api/book/file/upload?token=' + this.admin.token"
             :show-file-list="false"
             :on-success="handleCoverSuccess"
         >
-          <img v-if="form.cover" :src="form.cover" class="avatar">
+          <img v-if="form.cover" :src="form.cover" class="avatar" alt="">
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
       </el-form-item>
     </el-form>
 
     <div style="text-align: center; margin-top: 30px">
-      <el-button type="primary" @click="save" size="medium">提交</el-button>
+      <el-button type="primary" @click="save" size="medium">Submit</el-button>
     </div>
   </div>
 </template>

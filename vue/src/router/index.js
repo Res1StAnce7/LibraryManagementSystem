@@ -6,25 +6,22 @@ import Cookies from "js-cookie";
 Vue.use(VueRouter)
 
 const routes = [
-  //  ====== 登录  =====
   {
     path: '/login',
     name: 'Login',
     component: () => import('@/views/login/Login.vue'),
   },
-    //  ====== 主页  =====
   {
     path: '/',
     name: 'Layout',
     component: Layout,
     redirect: '/home',
-    children: [  // 子路由
+    children: [
       {
         path: 'home',
         name: 'Home',
         component: () => import('@/views/home/HomeView.vue'),
       },
-      //  ====  User  ====
       {
         path: 'userList',
         name: 'UserList',
@@ -40,7 +37,6 @@ const routes = [
         name: 'EditUser',
         component: () => import('@/views/user/EditUser.vue'),
       },
-      //  ====  Admin  ====
       {
         path: 'adminList',
         name: 'AdminList',
@@ -69,7 +65,7 @@ const routes = [
       { path: 'addBorrow', name: 'AddBorrow', component: () => import('@/views/borrow/Add.vue') },
       { path: 'editBorrow', name: 'EditBorrow', component: () => import('@/views/borrow/Edit.vue') },
       //  ====  Return  ====
-      { path: 'returList', name: 'returList', component: () => import('@/views/retur/List.vue') },
+      { path: 'returList', name: 'returList', component: () => import('@/views/return/List.vue') },
     ]
   },
   {
@@ -87,8 +83,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.path === '/login') next()
   const admin = Cookies.get("admin")
-  if (!admin && to.path !== '/login') return next("/login")  // 强制退回到登录页面
-  // 访问 /home 的时候，并且cookie里面存在数据，这个时候我就直接放行
+  if (!admin && to.path !== '/login') return next("/login")
   next()
 })
 

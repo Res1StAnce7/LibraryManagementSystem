@@ -3,20 +3,20 @@
     <div style="margin-bottom: 30px">Add User</div>
     <el-form :inline="true" :model="form" :rules="rules" ref="ruleForm" label-width="100px">
       <el-form-item label="Name" prop="name">
-        <el-input v-model="form.name" placeholder="Please Input your name"></el-input>
+        <el-input v-model="form.name" placeholder="Input your name"></el-input>
       </el-form-item>
       <el-form-item label="Age" prop="age">
-        <el-input v-model="form.age" placeholder="Please input your age"></el-input>
+        <el-input v-model="form.age" placeholder="Input your age"></el-input>
       </el-form-item>
       <el-form-item label="Gender">
         <el-radio v-model="form.gender"  label="Male">Male</el-radio>
         <el-radio v-model="form.gender"  label="Female">Female</el-radio>
       </el-form-item>
       <el-form-item label="Contact" prop="phone">
-        <el-input v-model="form.phone" placeholder="Please input your contact information"></el-input>
+        <el-input v-model="form.phone" placeholder="Input your contact information"></el-input>
       </el-form-item>
       <el-form-item label="Address" prop="address">
-        <el-input v-model="form.address" placeholder="Please input your address"></el-input>
+        <el-input v-model="form.address" placeholder="Input your address"></el-input>
       </el-form-item>
     </el-form>
 
@@ -46,7 +46,7 @@ export default {
     };
     const checkPhone = (rule, value, callback) => {
       if (!/^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(value)) {
-        callback(new Error('Please enter a valid phone number'));
+        callback(new Error('Enter a valid phone number'));
       }
       callback()
     };
@@ -54,7 +54,7 @@ export default {
       form: {gender: 'Male'},
       rules: {
         name: [
-          { required: true, message: 'Please input your name', trigger: 'blur'}
+          { required: true, message: 'Input your name', trigger: 'blur'}
         ],
         age: [
           { validator: checkAge, trigger: 'blur' }
