@@ -66,5 +66,4 @@ public class AdminController {
     public Result page(AdminPageRequest pageRequest) {
         return Result.success(adminService.page(pageRequest));
     }
-
 }

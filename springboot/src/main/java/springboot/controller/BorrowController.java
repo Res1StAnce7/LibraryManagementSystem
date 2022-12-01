@@ -21,6 +21,7 @@ public class BorrowController {
     @PostMapping("/save")
     public Result save(@RequestBody Borrow obj) {
         borrowService.save(obj);
+        System.out.println(obj);
         return Result.success();
     }
 

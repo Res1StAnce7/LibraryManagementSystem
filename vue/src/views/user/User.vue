@@ -68,7 +68,6 @@
         <el-button type="primary" @click="addAccount">Confirm</el-button>
       </div>
     </el-dialog>
-
   </div>
 </template>
 
