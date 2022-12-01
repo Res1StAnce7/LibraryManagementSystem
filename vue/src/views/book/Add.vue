@@ -24,6 +24,7 @@
       </el-form-item>
       <el-form-item label="Category" prop="category">
         <el-cascader
+            placeholder="Select the category"
             style="width: 220px"
             :props="{ value: 'name', label: 'name'}"
             v-model="form.categories"
@@ -53,7 +54,7 @@
     </el-form>
 
     <div style="text-align: center; margin-top: 30px">
-      <el-button type="primary" @click="save" size="medium">提交</el-button>
+      <el-button type="primary" @click="save" size="medium">Submit</el-button>
     </div>
   </div>
 </template>

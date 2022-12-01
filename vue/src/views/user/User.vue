@@ -16,7 +16,7 @@
       <el-table-column prop="phone" label="Contact"></el-table-column>
       <el-table-column prop="Gender" label="Gender"></el-table-column>
       <el-table-column prop="account" label="Score"></el-table-column>
-      <el-table-column label="Status" width="230">
+      <el-table-column label="Status">
         <template v-slot="scope">
           <el-switch
               v-model="scope.row.status"
@@ -26,10 +26,10 @@
           </el-switch>
         </template>
       </el-table-column>
-      <el-table-column prop="createTime" label="Time of Creation"></el-table-column>
-      <el-table-column prop="updateTime" label="Time of Update"></el-table-column>
+      <el-table-column prop="createTime" label="Time of Creation" width="120"></el-table-column>
+      <el-table-column prop="updateTime" label="Time of Update" width="120"></el-table-column>
 
-      <el-table-column label="Operation" width="230">
+      <el-table-column label="Operation">
         <template v-slot="scope">
           <el-button type="warning" @click="handleAccountAdd(scope.row)">Recharge</el-button>
           <el-button type="primary" @click="$router.push('/editUser?id=' + scope.row.id)">Edit</el-button>
