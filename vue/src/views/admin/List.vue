@@ -2,21 +2,21 @@
   <div>
     <!--    Search List-->
     <div style="margin-bottom: 20px">
-      <el-input style="width: 240px" placeholder="Input the username" v-model="params.username"></el-input>
-      <el-input style="width: 240px; margin-left: 5px" placeholder="Input the phone number" v-model="params.phone"></el-input>
-      <el-input style="width: 240px; margin-left: 5px" placeholder="Input the email" v-model="params.email"></el-input>
+      <el-input style="width: 240px" placeholder="Name" v-model="params.username"></el-input>
+      <el-input style="width: 240px; margin-left: 5px" placeholder="Phone" v-model="params.phone"></el-input>
+      <el-input style="width: 240px; margin-left: 5px" placeholder="Email" v-model="params.email"></el-input>
       <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> Search</el-button>
       <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Reset</el-button>
     </div>
 
     <el-table :data="tableData" stripe empty-text=" ">
       <el-table-column prop="id" label="ID" width="80"></el-table-column>
-      <el-table-column prop="username" label="Username"></el-table-column>
+      <el-table-column prop="username" label="Name"></el-table-column>
       <el-table-column prop="phone" label="Phone"></el-table-column>
       <el-table-column prop="email" label="Email"></el-table-column>
       <el-table-column prop="createtime" label="Time of Creation"></el-table-column>
       <el-table-column prop="updatetime" label="Time of Update"></el-table-column>
-      <el-table-column label="Status" width="230">
+      <el-table-column label="Status" width="100">
         <template v-slot="scope">
           <el-switch
               v-model="scope.row.status"
@@ -36,7 +36,7 @@
           >
             <el-button type="danger" slot="reference">Delete</el-button>
           </el-popconfirm>
-          <el-button style="margin-left: 5px" type="warning" @click="handleChangePass(scope.row)">Change Password</el-button>
+          <el-button style="margin-top: 10px" type="warning" @click="handleChangePass(scope.row)">Change Password</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -89,7 +89,7 @@ export default {
       },
       rules: {
         newPass: [
-          {required: true, message: 'Input the new password', trigger: 'blur'},
+          {required: true, message: 'Required', trigger: 'blur'},
           {min: 3, max: 10, message: 'Length should between 3 and 10', trigger: 'blur'}
         ]
       }

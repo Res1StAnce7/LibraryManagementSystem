@@ -3,13 +3,13 @@
     <div style="margin-bottom: 30px">Edit Admin</div>
     <el-form :inline="true" :model="form" label-width="200px">
       <el-form-item label="Username" prop="username">
-        <el-input v-model="form.username" placeholder="Input the name"></el-input>
+        <el-input v-model="form.username" placeholder="Name"></el-input>
       </el-form-item>
       <el-form-item label="Phone" prop="phone">
-        <el-input v-model="form.phone" placeholder="Input the phone"></el-input>
+        <el-input v-model="form.phone" placeholder="Phone"></el-input>
       </el-form-item>
       <el-form-item label="Email">
-        <el-input v-model="form.email" placeholder="Input the email"></el-input>
+        <el-input v-model="form.email" placeholder="Email"></el-input>
       </el-form-item>
     </el-form>
 

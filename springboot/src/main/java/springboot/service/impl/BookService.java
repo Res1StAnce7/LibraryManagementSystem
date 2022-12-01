@@ -38,7 +38,7 @@ public class BookService implements ImplBookService {
             obj.setCategory(category(obj.getCategories()));
             bookMapper.save(obj);
         } catch (Exception e) {
-            throw new ServiceException("Error", e);
+            throw new ServiceException("Book Exists", e);
         }
     }
 

@@ -11,7 +11,7 @@
             {{ admin.username }}<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown" style="margin-top: -5px">
-            <el-dropdown-item><div style="width: 50px; text-align: center;" @click="logout">Logout</div></el-dropdown-item>
+            <el-dropdown-item><div style="width: 60px; text-align: center;" @click="logout">Sign Out</div></el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>

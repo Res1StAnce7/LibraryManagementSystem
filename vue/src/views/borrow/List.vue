@@ -2,26 +2,26 @@
   <div>
     <!--    Search List-->
     <div style="margin-bottom: 20px">
-      <el-input style="width: 240px" placeholder="Input the book name" v-model="params.bookName"></el-input>
-      <el-input style="width: 240px; margin-left: 5px" placeholder="Input the book code" v-model="params.bookNo"></el-input>
-      <el-input style="width: 240px; margin-left: 5px" placeholder="Input the user name" v-model="params.userName"></el-input>
+      <el-input style="width: 240px" placeholder="Book Name" v-model="params.bookName"></el-input>
+      <el-input style="width: 240px; margin-left: 5px" placeholder="Book Code" v-model="params.bookNo"></el-input>
+      <el-input style="width: 240px; margin-left: 5px" placeholder="User Name" v-model="params.userName"></el-input>
       <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> Search</el-button>
       <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Reset</el-button>
     </div>
 
     <el-table :data="tableData" stripe row-key="id" empty-text=" " default-expand-all>
-      <el-table-column prop="id" label="ID" width="60"></el-table-column>
-      <el-table-column prop="bookName" label="BookName"></el-table-column>
+      <el-table-column prop="id" label="ID"></el-table-column>
+      <el-table-column prop="bookName" label="BookName" width="100"></el-table-column>
       <el-table-column prop="bookNo" label="Code"></el-table-column>
       <el-table-column prop="userNo" label="UserID"></el-table-column>
       <el-table-column prop="userName" label="Name"></el-table-column>
       <el-table-column prop="userPhone" label="Phone"></el-table-column>
-      <el-table-column prop="score" label="PointNeeded"></el-table-column>
-      <el-table-column prop="createtime" label="TimeLent"></el-table-column>
+      <el-table-column prop="score" label="PointsNeeded" width="100"></el-table-column>
+      <el-table-column prop="createtime" label="TimeLent" width="100"></el-table-column>
       <el-table-column prop="status" label="Status"></el-table-column>
       <el-table-column prop="days" label="DaysLent"></el-table-column>
-      <el-table-column prop="returnDate" label="DateReturning"></el-table-column>
-      <el-table-column prop="note" label="Expiration">
+      <el-table-column prop="returnDate" label="DateReturning" width="110"></el-table-column>
+      <el-table-column prop="note" label="Expiration" width="80">
         <template v-slot="scope">
           <el-tag type="success" v-if="scope.row.note === 'Normal'">{{ scope.row.note }}</el-tag>
           <el-tag type="primary" v-if="scope.row.note === 'About to Expire'">{{ scope.row.note }}</el-tag>
@@ -29,15 +29,14 @@
           <el-tag type="danger" v-if="scope.row.note === 'Expired'">{{ scope.row.note }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="Management">
+      <el-table-column label="Management" width="100">
         <template v-slot="scope">
-          <el-button type="primary" @click="returnBooks(scope.row)" v-if="scope.row.status !== 'Returned'">Return Book</el-button>
+          <el-button type="primary" @click="returnBooks(scope.row)" v-if="scope.row.status !== 'Returned'">Return</el-button>
         </template>
       </el-table-column>
-      <el-table-column label="Operation">
+      <el-table-column label="Operation" width="100">
         <template v-slot="scope">
           <el-popconfirm
-              style="margin-left: 5px"
               title="Are you sure to delete this record?"
               @confirm="del(scope.row.id)"
           >

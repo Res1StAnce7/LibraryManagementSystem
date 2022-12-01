@@ -2,14 +2,14 @@
   <div style="width: 80%">
     <div style="margin-bottom: 30px">Add Admin</div>
     <el-form :inline="true" :model="form" :rules="rules" ref="ruleForm" label-width="200px">
-      <el-form-item label="User Name" prop="username">
-        <el-input v-model="form.username" placeholder="Input the name"></el-input>
+      <el-form-item label="Name" prop="username">
+        <el-input v-model="form.username" placeholder="Name"></el-input>
       </el-form-item>
       <el-form-item label="Phone" prop="phone">
-        <el-input v-model="form.phone" placeholder="Input the phone"></el-input>
+        <el-input v-model="form.phone" placeholder="Phone"></el-input>
       </el-form-item>
       <el-form-item label="Email" prop="email">
-        <el-input v-model="form.email" placeholder="Input the email"></el-input>
+        <el-input v-model="form.email" placeholder="Email"></el-input>
       </el-form-item>
     </el-form>
 
@@ -35,11 +35,11 @@ export default {
       form: {},
       rules: {
         username: [
-          { required: true, message: 'Input your username', trigger: 'blur'},
+          { required: true, message: 'Required', trigger: 'blur'},
           { min: 3, max: 10, message: 'Length should between 3 and 10', trigger: 'blur'}
         ],
         phone: [
-          { validator: checkPhone, trigger: 'blur' }
+          { required: true, message: 'Required', validator: checkPhone, trigger: 'blur' }
         ]
       }
     }

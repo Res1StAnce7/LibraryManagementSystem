@@ -1,12 +1,12 @@
 <template>
   <div style="width: 80%">
-    <div style="margin-bottom: 30px">编辑图书</div>
+    <div style="margin-bottom: 30px">Edit Book</div>
     <el-form :inline="true" :rules="rules" ref="ruleForm" :model="form" label-width="100px">
       <el-form-item label="name" prop="name">
-        <el-input v-model="form.name" placeholder="Input the name"></el-input>
+        <el-input v-model="form.name" placeholder="Name"></el-input>
       </el-form-item>
       <el-form-item label="Description" prop="description">
-        <el-input style="width: 400px" type="textarea" v-model="form.description" placeholder="Input the description"></el-input>
+        <el-input style="width: 400px" type="textarea" v-model="form.description" placeholder="Description"></el-input>
       </el-form-item>
       <el-form-item label="Date of Publish" prop="publishDate">
         <el-date-picker
@@ -17,10 +17,10 @@
         </el-date-picker>
       </el-form-item>
       <el-form-item label="Author" prop="author">
-        <el-input v-model="form.author" placeholder="Input the author"></el-input>
+        <el-input v-model="form.author" placeholder="Author"></el-input>
       </el-form-item>
       <el-form-item label="Publisher" prop="publisher">
-        <el-input v-model="form.publisher" placeholder="Input the publisher"></el-input>
+        <el-input v-model="form.publisher" placeholder="Publisher"></el-input>
       </el-form-item>
       <el-form-item label="Category" prop="category">
         <el-cascader
@@ -68,13 +68,13 @@ export default {
       categories: [],
       rules: {
         name: [
-          { required: true, message: 'Input the book name', trigger: 'blur'}
+          { required: true, message: 'Required', trigger: 'blur'}
         ],
         bookNo: [
-          { required: true, message: 'Input the book codee', trigger: 'blur'}
+          { required: true, message: 'Required', trigger: 'blur'}
         ],
         score: [
-          { required: true, message: 'Input the book point', trigger: 'blur'}
+          { required: true, message: 'Required', trigger: 'blur'}
         ]
       }
     }
@@ -102,7 +102,7 @@ export default {
     save() {
       request.put('/book/update', this.form).then(res => {
         if (res.code === '200') {
-          this.$notify.success('更新成功')
+          this.$notify.success('Update Success')
           this.$router.push("/bookList")
         } else {
           this.$notify.error(res.msg)

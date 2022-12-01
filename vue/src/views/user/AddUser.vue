@@ -3,23 +3,22 @@
     <div style="margin-bottom: 30px">Add User</div>
     <el-form :inline="true" :model="form" :rules="rules" ref="ruleForm" label-width="100px">
       <el-form-item label="Name" prop="name">
-        <el-input v-model="form.name" placeholder="Input your name"></el-input>
+        <el-input v-model="form.name" placeholder="Name"></el-input>
       </el-form-item>
       <el-form-item label="Age" prop="age">
-        <el-input v-model="form.age" placeholder="Input your age"></el-input>
+        <el-input v-model="form.age" placeholder="Age"></el-input>
       </el-form-item>
       <el-form-item label="Gender">
         <el-radio v-model="form.gender"  label="Male">Male</el-radio>
         <el-radio v-model="form.gender"  label="Female">Female</el-radio>
       </el-form-item>
       <el-form-item label="Phone" prop="phone">
-        <el-input v-model="form.phone" placeholder="Input the "></el-input>
+        <el-input v-model="form.phone" placeholder="Phone"></el-input>
       </el-form-item>
       <el-form-item label="Address" prop="address">
-        <el-input v-model="form.address" placeholder="Input the address"></el-input>
+        <el-input v-model="form.address" placeholder="Address"></el-input>
       </el-form-item>
     </el-form>
-
     <div style="text-align: center; margin-top: 30px">
       <el-button type="primary" @click="save" size="medium">Submit</el-button>
     </div>
@@ -54,13 +53,13 @@ export default {
       form: {gender: 'Male'},
       rules: {
         name: [
-          { required: true, message: 'Input your name', trigger: 'blur'}
+          { required: true, message: 'Required', trigger: 'blur'}
         ],
         age: [
-          { validator: checkAge, trigger: 'blur' }
+          { required: true, message: 'Required', validator: checkAge, trigger: 'blur' }
         ],
         phone: [
-          { validator: checkPhone, trigger: 'blur' }
+          { required: true, message: 'Required', validator: checkPhone, trigger: 'blur' }
         ]
       }
     }

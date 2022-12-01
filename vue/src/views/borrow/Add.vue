@@ -64,10 +64,10 @@ export default {
       users: [],
       rules: {
         bookNo: [
-          { required: true, message: 'Input the book code', trigger: 'blur'}
+          { required: true, message: 'Required', trigger: 'blur'}
         ],
         userNo: [
-          { required: true, message: 'Input user id', trigger: 'blur'}
+          { required: true, message: 'Required', trigger: 'blur'}
         ]
       }
     }

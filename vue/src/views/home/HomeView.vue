@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="margin: 20px 0">
-      <el-select class="input" v-model="timeRange" placeholder="Please select" @change="load">
+      <el-select class="input" v-model="timeRange" placeholder="Time Range" @change="load">
         <el-option
             v-for="item in options"
             :key="item.value"
@@ -54,14 +54,14 @@ const option = {
     {
       name: 'Number of Borrowing',
       type: 'line',
-      stack: 'Total',
+      stack: 'total',
       smooth: true,
       data: []
     },
     {
       name: 'Number of Returning',
       type: 'line',
-      stack: 'Total',
+      stack: 'total',
       smooth: true,
       data: []
     }
@@ -93,7 +93,7 @@ const option = {
         request.get('/borrow/lineCharts/' + this.timeRange).then(res => {
           option.xAxis.data = res.data.date
           option.series[0].data = res.data.borrow
-          option.series[1].data = res.data.return
+          option.series[1].data = res.data.retur
           this.lineBox.setOption(option)
         })
       }

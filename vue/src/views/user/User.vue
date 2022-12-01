@@ -1,8 +1,8 @@
 <template>
   <div>
     <div style="margin-bottom: 20px">
-      <el-input style="width: 240px" placeholder="Input the name" v-model="params.name"></el-input>
-      <el-input style="width: 240px; margin-left: 5px" placeholder="Input the phone number" v-model="params.phone"></el-input>
+      <el-input style="width: 240px" placeholder="Name" v-model="params.name"></el-input>
+      <el-input style="width: 240px; margin-left: 5px" placeholder="Phone" v-model="params.phone"></el-input>
       <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> Search</el-button>
       <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Rest</el-button>
     </div>
@@ -29,14 +29,21 @@
       <el-table-column prop="updatetime" label="Time of Update" width="120"></el-table-column>
       <el-table-column label="Operation">
         <template v-slot="scope">
-          <el-button type="warning" @click="handleAccountAdd(scope.row)">Recharge</el-button>
-          <el-button type="primary" @click="$router.push('/editUser?id=' + scope.row.id)">Edit</el-button>
+          <el-button type="warning" @click="handleAccountAdd(scope.row)" style="margin-left: 0;
+          margin-right: 15px; width: 80px; text-align: center">
+            Recharge
+          </el-button>
+          <el-button type="primary" @click="$router.push('/editUser?id=' + scope.row.id)"
+                     style="margin-left: 0; margin-top: 10px; margin-right: 15px; width: 80px; text-align: center">
+            Edit
+          </el-button>
           <el-popconfirm
-              style="margin-left: 5px"
               title="Are you sure to delete this user?"
               @confirm="del(scope.row.id)"
           >
-            <el-button type="danger" slot="reference">Delete</el-button>
+            <el-button type="danger" slot="reference" style="margin-left: 0; margin-right: 15px; margin-top: 10px; width: 80px; text-align: center">
+              Delete
+            </el-button>
           </el-popconfirm>
         </template>
       </el-table-column>
@@ -97,7 +104,7 @@ export default {
       form: {},
       rules: {
         score: [
-          { required: true, message: 'Input the point', trigger: 'blur'},
+          { required: true, message: 'Required', trigger: 'blur'},
           { validator: checkNums, trigger: 'blur'}
         ]
       }

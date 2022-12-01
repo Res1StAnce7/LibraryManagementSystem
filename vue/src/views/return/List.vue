@@ -2,27 +2,27 @@
   <div>
     <!--    Search List-->
     <div style="margin-bottom: 20px">
-      <el-input style="width: 240px" placeholder="Input book name" v-model="params.name"></el-input>
-      <el-input style="width: 240px; margin-left: 5px" placeholder="Input book code" v-model="params.bookNo"></el-input>
-      <el-input style="width: 240px; margin-left: 5px" placeholder="Input username" v-model="params.userName"></el-input>
+      <el-input style="width: 240px" placeholder="Book Name" v-model="params.name"></el-input>
+      <el-input style="width: 240px; margin-left: 5px" placeholder="Book Code" v-model="params.bookNo"></el-input>
+      <el-input style="width: 240px; margin-left: 5px" placeholder="Username" v-model="params.userName"></el-input>
       <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> Search</el-button>
       <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Reset</el-button>
     </div>
 
     <el-table :data="tableData" stripe row-key="id"  default-expand-all>
-      <el-table-column prop="id" label="No." width="80"></el-table-column>
-      <el-table-column prop="bookName" label="Book Name"></el-table-column>
-      <el-table-column prop="bookNo" label="Book Code"></el-table-column>
+      <el-table-column prop="id" label="ID" width="50"></el-table-column>
+      <el-table-column prop="bookName" label="Book Name" width="100"></el-table-column>
+      <el-table-column prop="bookNo" label="Book Code" width="100"></el-table-column>
       <el-table-column prop="userNo" label="UserID"></el-table-column>
-      <el-table-column prop="userName" label="User Name"></el-table-column>
+      <el-table-column prop="userName" label="Name"></el-table-column>
       <el-table-column prop="userPhone" label="Phone"></el-table-column>
       <el-table-column prop="score" label="Point"></el-table-column>
-      <el-table-column prop="createtime" label="Date of Borrowing"></el-table-column>
-      <el-table-column prop="status" label="Borrowing Status"></el-table-column>
-      <el-table-column prop="days" label="Days of Borrowing"></el-table-column>
-      <el-table-column prop="returnDate" label="Date of Return"></el-table-column>
-      <el-table-column prop="realDate" label="Actual Return Date"></el-table-column>
-      <el-table-column label="Operation">
+      <el-table-column prop="createtime" label="Date of Borrowing" width="130"></el-table-column>
+      <el-table-column prop="status" label="Borrowing Status" width="130"></el-table-column>
+      <el-table-column prop="days" label="Days of Borrowing" width="130"></el-table-column>
+      <el-table-column prop="returnDate" label="Date of Return" width="120"></el-table-column>
+      <el-table-column prop="realDate" label="Actual Return Date" width="130"></el-table-column>
+      <el-table-column label="Operation" width="100">
         <template v-slot="scope">
           <el-popconfirm
               style="margin-left: 5px"
@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     load() {
-      request.get('/borrow/pageRetur', {
+      request.get('/borrow/pageReturn', {
         params: this.params
       }).then(res => {
         if (res.code === '200') {

@@ -18,13 +18,13 @@
         <div style="margin: 30px; text-align: center; font-size: 30px; font-weight: bold; color: dodgerblue">Book Management System</div>
         <el-form :model="admin" :rules="rules" ref="loginForm">
           <el-form-item prop="username">
-            <el-input placeholder="Input your username" prefix-icon="el-icon-user" size="medium" v-model="admin.username"></el-input>
+            <el-input placeholder="Username" prefix-icon="el-icon-user" size="medium" v-model="admin.username"></el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input placeholder="Input your password" show-password prefix-icon="el-icon-lock" size="medium" v-model="admin.password"></el-input>
+            <el-input placeholder="Password" show-password prefix-icon="el-icon-lock" size="medium" v-model="admin.password"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button style="width: 100%" size="medium" type="primary" @click="login">Login</el-button>
+            <el-button style="width: 100%" size="medium" type="primary" @click="login">Sign In</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -43,11 +43,11 @@ export default {
       admin: {},
       rules: {
         username: [
-          { required: true, message: 'Input your username', trigger: 'blur'},
+          { required: true, message: 'Required', trigger: 'blur'},
           { min: 3, max: 10, message: 'Length should between 3 and 10', trigger: 'blur'}
         ],
         password: [
-          { required: true, message: 'Input your username password', trigger: 'blur'},
+          { required: true, message: 'Required', trigger: 'blur'},
           { min: 3, max: 10, message: 'Length should between 3 and 10', trigger: 'blur'}
         ]
       }

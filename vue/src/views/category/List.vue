@@ -2,7 +2,7 @@
   <div>
     <!--    Search List-->
     <div style="margin-bottom: 20px">
-      <el-input style="width: 240px" placeholder="Input the name of the category" v-model="params.name"></el-input>
+      <el-input style="width: 240px" placeholder="Category Name" v-model="params.name"></el-input>
       <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> Search</el-button>
       <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Reset</el-button>
     </div>
@@ -13,15 +13,15 @@
       <el-table-column prop="remark" label="Comment"></el-table-column>
       <el-table-column prop="createtime" label="Time of Creation"></el-table-column>
       <el-table-column prop="updatetime" label="Time of Update"></el-table-column>
-      <el-table-column label="Operation" width="280">
+      <el-table-column label="Operation" width="200">
         <template v-slot="scope">
           <el-button type="success" v-if="!scope.row.pid" @click="handleAdd(scope.row)">Add Sub Category</el-button>
-          <el-button type="primary" @click="$router.push('/editCategory?id=' + scope.row.id)">Edit</el-button>
+          <el-button type="primary" @click="$router.push('/editCategory?id=' + scope.row.id)" style="margin-left: 0">Edit</el-button>
           <el-popconfirm
-              style="margin-left: 5px"
+              style="margin-left: 10px"
               title="Are you sure to delete this category? "
               @confirm="del(scope.row.id)">
-            <el-button type="danger" slot="reference">Delete</el-button>
+            <el-button type="danger" slot="reference" style="margin-top: 10px">Delete</el-button>
           </el-popconfirm>
         </template>
       </el-table-column>
@@ -78,7 +78,7 @@ export default {
       },
       rules: {
         name: [
-          {required: true, message: 'Input the name of the category', trigger: 'blur'}
+          {required: true, message: 'Required', trigger: 'blur'}
         ]
       }
     }

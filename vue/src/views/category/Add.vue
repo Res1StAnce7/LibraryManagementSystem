@@ -2,11 +2,11 @@
   <div style="width: 80%">
     <div style="margin-bottom: 30px">Add New Category</div>
     <el-form :inline="true" :rules="rules" ref="ruleForm" :model="form" label-width="100px">
-      <el-form-item label="Name" prop="name">
-        <el-input v-model="form.name" placeholder="Input the name"></el-input>
+      <el-form-item label="Name" prop="name" style="padding-left: 0">
+        <el-input v-model="form.name" placeholder="Name"></el-input>
       </el-form-item>
       <el-form-item label="Comment" prop="remark">
-        <el-input v-model="form.remark" placeholder="Input the comment"></el-input>
+        <el-input v-model="form.remark" placeholder="Comment"></el-input>
       </el-form-item>
     </el-form>
 
@@ -26,7 +26,7 @@ export default {
       form: {},
       rules: {
         name: [
-          { required: true, message: 'Input the name of the category', trigger: 'blur'}
+          { required: true, message: 'Required', trigger: 'blur'}
         ]
       }
     }

@@ -3,41 +3,41 @@
     <div style="margin-bottom: 30px">Add Book</div>
     <el-form :inline="true" :rules="rules" ref="ruleForm" :model="form" label-width="100px">
       <el-form-item label="Name" prop="name">
-        <el-input v-model="form.name" placeholder="Input the name"></el-input>
+        <el-input v-model="form.name" placeholder="Name"></el-input>
       </el-form-item>
       <el-form-item label="Description" prop="description">
-        <el-input style="width: 400px" type="textarea" v-model="form.description" placeholder="Input the description"></el-input>
+        <el-input style="width: 400px" type="textarea" v-model="form.description" placeholder="Description"></el-input>
       </el-form-item>
-      <el-form-item label="Date of Publish" prop="publishDate">
+      <el-form-item label="Date of Publish" prop="publishDate" >
         <el-date-picker
             v-model="form.publishDate"
             type="date"
             value-format="yyyy-MM-dd"
-            placeholder="Select the date of publish">
+            placeholder="Date of Publish">
         </el-date-picker>
       </el-form-item>
       <el-form-item label="Author" prop="author">
-        <el-input v-model="form.author" placeholder="Input the author"></el-input>
+        <el-input v-model="form.author" placeholder="Author"></el-input>
       </el-form-item>
       <el-form-item label="Publisher" prop="publisher">
-        <el-input v-model="form.publisher" placeholder="Input the publisher"></el-input>
+        <el-input v-model="form.publisher" placeholder="Publisher"></el-input>
       </el-form-item>
       <el-form-item label="Category" prop="category">
         <el-cascader
-            placeholder="Select the category"
+            placeholder="Category"
             style="width: 220px"
             :props="{ value: 'name', label: 'name'}"
             v-model="form.categories"
             :options="categories"></el-cascader>
       </el-form-item>
       <el-form-item label="Book Code" prop="bookNo">
-        <el-input v-model="form.bookNo" placeholder="Input the Book Code"></el-input>
+        <el-input v-model="form.bookNo" placeholder="Book Code"></el-input>
       </el-form-item>
       <el-form-item label="Point" prop="cover">
-        <el-input-number v-model="form.score" :min="10" :max="30" label="Point Needed"></el-input-number>
+        <el-input-number v-model="form.score" :min="10" :max="30" label="Points Needed"></el-input-number>
       </el-form-item>
       <el-form-item label="Quantity" prop="nums">
-        <el-input v-model="form.nums" placeholder="Input the Quantity"></el-input>
+        <el-input v-model="form.nums" placeholder="Quantity"></el-input>
       </el-form-item>
       <br>
       <el-form-item label="Cover" prop="cover">
@@ -52,7 +52,6 @@
         </el-upload>
       </el-form-item>
     </el-form>
-
     <div style="text-align: center; margin-top: 30px">
       <el-button type="primary" @click="save" size="medium">Submit</el-button>
     </div>
@@ -79,16 +78,16 @@ export default {
       categories: [],
       rules: {
         name: [
-          { required: true, message: 'Input the book name', trigger: 'blur'}
+          { required: true, message: 'Required', trigger: 'blur'}
         ],
         bookNo: [
-          { required: true, message: 'Input the book code', trigger: 'blur'}
+          { required: true, message: 'Required', trigger: 'blur'}
         ],
         score: [
           { validator: checkNums, trigger: 'blur' }
         ],
         nums: [
-          { required: true, message: 'Inout the quantity', trigger: 'blur'},
+          { required: true, message: 'Required', trigger: 'blur'},
           { validator: checkNums, trigger: 'blur' }
         ]
       }
