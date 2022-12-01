@@ -1,23 +1,22 @@
 <template>
   <div>
-    <!--    搜索表单-->
     <div style="margin-bottom: 20px">
-      <el-input style="width: 240px" placeholder="请输入名称" v-model="params.name"></el-input>
-      <el-input style="width: 240px; margin-left: 5px" placeholder="请输入联系方式" v-model="params.phone"></el-input>
-      <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> 搜索</el-button>
-      <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> 重置</el-button>
+      <el-input style="width: 240px" placeholder="Please input your name" v-model="params.name"></el-input>
+      <el-input style="width: 240px; margin-left: 5px" placeholder="Please input your contact information" v-model="params.phone"></el-input>
+      <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> Search</el-button>
+      <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Rest</el-button>
     </div>
 
     <el-table :data="tableData" stripe>
-      <el-table-column prop="id" label="编号" width="80"></el-table-column>
-      <el-table-column prop="username" label="会员卡号"></el-table-column>
-      <el-table-column prop="name" label="名称"></el-table-column>
-      <el-table-column prop="age" label="年龄"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
-      <el-table-column prop="phone" label="联系方式"></el-table-column>
-      <el-table-column prop="sex" label="性别"></el-table-column>
-      <el-table-column prop="account" label="账户积分"></el-table-column>
-      <el-table-column label="状态" width="230">
+      <el-table-column prop="id" label="id" width="80"></el-table-column>
+      <el-table-column prop="username" label="CardID"></el-table-column>
+      <el-table-column prop="name" label="Name"></el-table-column>
+      <el-table-column prop="age" label="Age"></el-table-column>
+      <el-table-column prop="address" label="Address"></el-table-column>
+      <el-table-column prop="phone" label="Contact"></el-table-column>
+      <el-table-column prop="Gender" label="Gender"></el-table-column>
+      <el-table-column prop="account" label="Score"></el-table-column>
+      <el-table-column label="Status" width="230">
         <template v-slot="scope">
           <el-switch
               v-model="scope.row.status"
@@ -27,26 +26,25 @@
           </el-switch>
         </template>
       </el-table-column>
-      <el-table-column prop="createtime" label="创建时间"></el-table-column>
-      <el-table-column prop="updatetime" label="更新时间"></el-table-column>
+      <el-table-column prop="createTime" label="Time of Creation"></el-table-column>
+      <el-table-column prop="updateTime" label="Time of Update"></el-table-column>
 
-      <el-table-column label="操作" width="230">
+      <el-table-column label="Operation" width="230">
         <template v-slot="scope">
-<!--          scope.row 就是当前行数据-->
-          <el-button type="warning" @click="handleAccountAdd(scope.row)">充值</el-button>
-          <el-button type="primary" @click="$router.push('/editUser?id=' + scope.row.id)">编辑</el-button>
+          <el-button type="warning" @click="handleAccountAdd(scope.row)">Recharge</el-button>
+          <el-button type="primary" @click="$router.push('/editUser?id=' + scope.row.id)">Edit</el-button>
           <el-popconfirm
               style="margin-left: 5px"
-              title="您确定删除这行数据吗？"
+              title="Are you sure to delete this user?"
               @confirm="del(scope.row.id)"
           >
-            <el-button type="danger" slot="reference">删除</el-button>
+            <el-button type="danger" slot="reference">Delete</el-button>
           </el-popconfirm>
         </template>
       </el-table-column>
     </el-table>
 
-    <!--    分页-->
+    <!--    Subpage-->
     <div style="margin-top: 20px">
       <el-pagination
           background
@@ -58,18 +56,18 @@
       </el-pagination>
     </div>
 
-    <el-dialog title="充值" :visible.sync="dialogFormVisible" width="30%">
+    <el-dialog title="Recharge" :visible.sync="dialogFormVisible" width="30%">
       <el-form :model="form" label-width="100px" ref="ruleForm" :rules="rules" style="width: 85%">
-        <el-form-item label="当前账户积分" prop="account">
+        <el-form-item label="Current Score" prop="account">
           <el-input disabled v-model="form.account" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="积分" prop="score">
+        <el-form-item label="Score" prop="score">
           <el-input v-model="form.score" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addAccount">确 定</el-button>
+        <el-button @click="dialogFormVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="addAccount">Confirm</el-button>
       </div>
     </el-dialog>
 
@@ -85,7 +83,7 @@ export default {
     const checkNums = (rule, value, callback) => {
       value = parseInt(value)
       if (value < 10 || value > 200) {
-        callback(new Error('请输入大于等于10小于或等于200的整数'));
+        callback(new Error('Score must be between 10 and 200'));
       }
       callback()
     };
@@ -102,7 +100,7 @@ export default {
       form: {},
       rules: {
         score: [
-          { required: true, message: '请输入积分', trigger: 'blur'},
+          { required: true, message: 'Please input the socre', trigger: 'blur'},
           { validator: checkNums, trigger: 'blur'}
         ]
       }
@@ -115,7 +113,7 @@ export default {
     changeStatus(row) {
       request.put('/user/update', row).then(res => {
         if (res.code === '200') {
-          this.$notify.success('操作成功')
+          this.$notify.success('Operation successful')
           this.load()
         } else {
           this.$notify.error(res.msg)
@@ -147,14 +145,13 @@ export default {
       this.load()
     },
     handleCurrentChange(pageNum) {
-      // 点击分页按钮触发分页
       this.params.pageNum = pageNum
       this.load()
     },
     del(id) {
       request.delete("/user/delete/" + id).then(res => {
         if (res.code === '200') {
-          this.$notify.success('删除成功')
+          this.$notify.success('Operation successful')
           this.load()
         } else {
           this.$notify.error(res.msg)
@@ -170,7 +167,7 @@ export default {
         if (valid) {
           request.post('/user/account', this.form).then(res => {
             if (res.code === '200') {
-              this.$notify.success('充值成功')
+              this.$notify.success('Operation successful')
               this.dialogFormVisible = false
               this.load()
             } else {

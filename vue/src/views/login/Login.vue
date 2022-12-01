@@ -6,7 +6,7 @@
                     :w="310"
                     :h="155"
                     :accuracy="5"
-                    slider-text="向右滑动"
+                    slider-text="Drag to verify"
                     @success="onSuccess"
                     @fail="onFail"
                     @refresh="onRefresh"
@@ -15,16 +15,16 @@
 
       <div style="width: 500px; height: 400px; background-color: white; border-radius: 10px;
         margin: 150px auto; padding:50px">
-        <div style="margin: 30px; text-align: center; font-size: 30px; font-weight: bold; color: dodgerblue">登 录</div>
+        <div style="margin: 30px; text-align: center; font-size: 30px; font-weight: bold; color: dodgerblue">Login</div>
         <el-form :model="admin" :rules="rules" ref="loginForm">
           <el-form-item prop="username">
-            <el-input placeholder="请输入账号" prefix-icon="el-icon-user" size="medium" v-model="admin.username"></el-input>
+            <el-input placeholder="Please input your username" prefix-icon="el-icon-user" size="medium" v-model="admin.username"></el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input placeholder="请输入密码" show-password prefix-icon="el-icon-lock" size="medium" v-model="admin.password"></el-input>
+            <el-input placeholder="Please input your password" show-password prefix-icon="el-icon-lock" size="medium" v-model="admin.password"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button style="width: 100%" size="medium" type="primary" @click="login">登录</el-button>
+            <el-button style="width: 100%" size="medium" type="primary" @click="login">Login</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -43,12 +43,12 @@ export default {
       admin: {},
       rules: {
         username: [
-          { required: true, message: '请输入用户名', trigger: 'blur'},
-          { min: 3, max: 10, message: '长度在3-10个字符', trigger: 'blur'}
+          { required: true, message: 'Please input your username', trigger: 'blur'},
+          { min: 3, max: 10, message: 'Length should between 3 and 10', trigger: 'blur'}
         ],
         password: [
-          { required: true, message: '请输入密码', trigger: 'blur'},
-          { min: 3, max: 10, message: '长度在3-10个字符', trigger: 'blur'}
+          { required: true, message: 'Please input your username password', trigger: 'blur'},
+          { min: 3, max: 10, message: 'Length should between 3 and 10', trigger: 'blur'}
         ]
       }
     }
@@ -59,7 +59,7 @@ export default {
         if (valid) {
           request.post('/admin/login', this.admin).then(res => {
             if (res.code === '200') {
-              this.loginAdmin = res.data  // 滑块组件就出现了
+              this.loginAdmin = res.data
             } else {
               this.$notify.error(res.msg)
             }
@@ -67,9 +67,9 @@ export default {
         }
       })
     },
-    onSuccess() { // 滑块验证通过之后触发的
+    onSuccess() {
       Cookies.set('admin', JSON.stringify(this.loginAdmin))
-      this.$notify.success("登录成功")
+      this.$notify.success('Login successfully')
       this.$router.push('/')
     },
     onFail() {

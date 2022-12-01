@@ -8,7 +8,7 @@ import SlideVerify from 'vue-monoplasty-slide-verify';
 
 Vue.use(SlideVerify);
 Vue.config.productionTip = false
-Vue.use(ElementUI, { size: 'small' });  // medium  small mini
+Vue.use(ElementUI, { size: 'small' });
 
 new Vue({
   router,
