@@ -82,14 +82,11 @@ public class BorrowService implements ImplBorrowService {
         }
         Integer account = user.getAccount();
         Integer score = book.getScore() * obj.getDays();
-        // 4. 校验用户账户余额
         if (score > account) {
             throw new ServiceException("Insufficient account balance");
         }
-        // 5. 更新用户余额
         user.setAccount(user.getAccount() - score);
         userMapper.updateById(user);
-        // 6. 更新图书的数量
         book.setNums(book.getNums() - 1);
         bookMapper.updateById(book);
 
