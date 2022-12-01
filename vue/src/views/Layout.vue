@@ -23,12 +23,12 @@
       <div style="width: 300px; min-height: calc(100vh - 62px); overflow: hidden; margin-right: 2px; background-color: white">
         <el-menu :default-active="$route.path" router class="el-menu-demo" style="margin-bottom: 10px">
           <el-menu-item index="/">
-            <i class="el-icon-element"></i>
+            <i class="el-icon-wind-power"></i>
             <span>Main</span>
           </el-menu-item>
           <el-submenu index="user">
             <template slot="title">
-              <i class="el-icon-question"></i>
+              <i class="el-icon-s-custom"></i>
               <span>Member Management</span>
             </template>
             <el-menu-item index="/addUser">Add Member</el-menu-item>
@@ -36,7 +36,7 @@
           </el-submenu>
           <el-submenu index="admin">
             <template slot="title">
-              <i class="el-icon-user"></i>
+              <i class="el-icon-user-solid"></i>
               <span>Admin Management</span>
             </template>
             <el-menu-item index="/addAdmin">Add Admin</el-menu-item>
@@ -60,7 +60,7 @@
           </el-submenu>
           <el-submenu index="borrow">
             <template slot="title">
-              <i class="el-icon-document-copy"></i>
+              <i class="el-icon-copy-document"></i>
               <span>Book Borrowing Management</span>
             </template>
             <el-menu-item index="/addBorrow">Add Book</el-menu-item>
