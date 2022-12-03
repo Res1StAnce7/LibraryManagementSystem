@@ -12,7 +12,6 @@
         <el-input v-model="form.email" placeholder="Email"></el-input>
       </el-form-item>
     </el-form>
-
     <div style="text-align: center; margin-top: 30px">
       <el-button type="primary" @click="save" size="medium">Submit</el-button>
     </div>
@@ -26,7 +25,7 @@ export default {
   name: 'AddAdmin',
   data() {
     const checkPhone = (rule, value, callback) => {
-      if (!/^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(value)) {
+      if (!/(1\s?)?(\d{3}|\(\d{3}\))[\s\-]?\d{3}[\s\-]?\d{4}$/.test(value)) {
         callback(new Error('Enter a valid phone number'));
       }
       callback()
@@ -36,10 +35,10 @@ export default {
       rules: {
         username: [
           { required: true, message: 'Required', trigger: 'blur'},
-          { min: 3, max: 10, message: 'Length should between 3 and 10', trigger: 'blur'}
+          { min: 3, max: 20, message: 'Length should between 3 and 20', trigger: 'blur'}
         ],
         phone: [
-          { required: true, message: 'Required', validator: checkPhone, trigger: 'blur' }
+          { required: true, message: 'Invalid Phone Number', validator: checkPhone, trigger: 'blur' }
         ]
       }
     }

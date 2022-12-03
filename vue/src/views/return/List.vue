@@ -27,7 +27,8 @@
           <el-popconfirm
               style="margin-left: 5px"
               title="Are you sure to delete this record? "
-              @confirm="del(scope.row.id)"
+              confirmButtonText="Confirm"
+              cancelButtonText="Cancel"
           >
             <el-button type="danger" >Delete</el-button>
           </el-popconfirm>

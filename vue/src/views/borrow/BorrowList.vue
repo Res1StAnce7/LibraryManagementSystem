@@ -12,10 +12,10 @@
     <el-table :data="tableData" stripe row-key="id" empty-text=" " default-expand-all>
       <el-table-column prop="id" label="ID"></el-table-column>
       <el-table-column prop="bookName" label="BookName" width="100"></el-table-column>
-      <el-table-column prop="bookNo" label="Code"></el-table-column>
-      <el-table-column prop="userNo" label="UserID"></el-table-column>
+      <el-table-column prop="bookNo" label="Code" width="60"></el-table-column>
+      <el-table-column prop="userNo" label="UserID" width="140"></el-table-column>
       <el-table-column prop="userName" label="Name"></el-table-column>
-      <el-table-column prop="userPhone" label="Phone"></el-table-column>
+      <el-table-column prop="userPhone" label="Phone" width="100"></el-table-column>
       <el-table-column prop="score" label="PointsNeeded" width="100"></el-table-column>
       <el-table-column prop="createtime" label="TimeLent" width="100"></el-table-column>
       <el-table-column prop="status" label="Status"></el-table-column>
@@ -38,7 +38,8 @@
         <template v-slot="scope">
           <el-popconfirm
               title="Are you sure to delete this record?"
-              @confirm="del(scope.row.id)"
+              confirmButtonText="Confirm"
+              cancelButtonText="Cancel"
           >
             <el-button type="danger" slot="reference">Delete</el-button>
           </el-popconfirm>

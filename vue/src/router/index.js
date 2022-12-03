@@ -20,12 +20,12 @@ const routes = [
       {
         path: 'home',
         name: 'Home',
-        component: () => import('@/views/home/HomeView.vue'),
+        component: () => import('@/views/home/Home.vue'),
       },
       {
         path: 'userList',
         name: 'UserList',
-        component: () => import('@/views/user/User.vue'),
+        component: () => import('@/views/user/UserList.vue'),
       },
       {
         path: 'addUser',
@@ -53,17 +53,17 @@ const routes = [
         component: () => import('@/views/admin/Edit.vue'),
       },
       //  ====  Category  ====
-      { path: 'categoryList', name: 'CategoryList', component: () => import('@/views/category/List.vue') },
-      { path: 'addCategory', name: 'AddCategory', component: () => import('@/views/category/Add.vue') },
-      { path: 'editCategory', name: 'EditCategory', component: () => import('@/views/category/Edit.vue') },
+      { path: 'categoryList', name: 'CategoryList', component: () => import('@/views/category/CategoryList.vue') },
+      { path: 'addCategory', name: 'AddCategory', component: () => import('@/views/category/AddCategory.vue') },
+      { path: 'editCategory', name: 'EditCategory', component: () => import('@/views/category/EditCategory.vue') },
       //  ====  Book  ====
       { path: 'bookList', name: 'BookList', component: () => import('@/views/book/List.vue') },
       { path: 'addBook', name: 'AddBook', component: () => import('@/views/book/Add.vue') },
       { path: 'editBook', name: 'EditBook', component: () => import('@/views/book/Edit.vue') },
       //  ====  Borrow  ====
-      { path: 'borrowList', name: 'BorrowList', component: () => import('@/views/borrow/List.vue') },
-      { path: 'addBorrow', name: 'AddBorrow', component: () => import('@/views/borrow/Add.vue') },
-      { path: 'editBorrow', name: 'EditBorrow', component: () => import('@/views/borrow/Edit.vue') },
+      { path: 'borrowList', name: 'BorrowList', component: () => import('@/views/borrow/BorrowList.vue') },
+      { path: 'addBorrow', name: 'AddBorrow', component: () => import('@/views/borrow/AddBorrow.vue') },
+      { path: 'editBorrow', name: 'EditBorrow', component: () => import('@/views/borrow/EditBorrow.vue') },
       //  ====  Return  ====
       { path: 'returnList', name: 'returnList', component: () => import('@/views/return/List.vue') },
     ]

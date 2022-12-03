@@ -4,15 +4,15 @@ exports.__esModule = true;
 exports.default = {
   el: {
     colorpicker: {
-      confirm: '确定',
+      confirm: 'Confirm',
       clear: '清空'
     },
     datepicker: {
       now: '此刻',
       today: '今天',
-      cancel: '取消',
+      cancel: 'Cancel',
       clear: '清空',
-      confirm: '确定',
+      confirm: 'Confirm',
       selectDate: '选择日期',
       selectTime: '选择时间',
       startDate: '开始日期',
@@ -81,8 +81,8 @@ exports.default = {
     },
     messagebox: {
       title: '提示',
-      confirm: '确定',
-      cancel: '取消',
+      confirm: 'Confirm',
+      cancel: 'Cancel',
       error: '输入的数据不合法!'
     },
     upload: {
@@ -116,8 +116,8 @@ exports.default = {
       title: '返回'
     },
     popconfirm: {
-      confirmButtonText: '确定',
-      cancelButtonText: '取消'
+      confirmButtonText: 'Confirm',
+      cancelButtonText: 'Cancel'
     },
     empty: {
       description: '暂无数据'

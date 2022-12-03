@@ -6,16 +6,15 @@
                     :w="310"
                     :h="155"
                     :accuracy="5"
-                    slider-text="Drag to verify"
+                    slider-text="Drag to Verify"
                     @success="onSuccess"
                     @fail="onFail"
-                    @refresh="onRefresh"
-      ></slide-verify>
+                    @refresh="onRefresh">
+      </slide-verify>
     </el-card>
-
       <div style="width: 550px; height: 400px; background-color: white; border-radius: 10px;
         margin: 150px auto; padding:50px">
-        <div style="margin: 30px; text-align: center; font-size: 30px; font-weight: bold; color: dodgerblue">Book Management System</div>
+        <div style="margin: 30px; text-align: center; font-size: 30px; font-weight: bold; color: dodgerblue">Library Management System</div>
         <el-form :model="admin" :rules="rules" ref="loginForm">
           <el-form-item prop="username">
             <el-input placeholder="Username" prefix-icon="el-icon-user" size="medium" v-model="admin.username"></el-input>
@@ -44,11 +43,11 @@ export default {
       rules: {
         username: [
           { required: true, message: 'Required', trigger: 'blur'},
-          { min: 3, max: 10, message: 'Length should between 3 and 10', trigger: 'blur'}
+          { min: 3, max: 20, message: 'Length should between 3 and 20', trigger: 'blur'}
         ],
         password: [
           { required: true, message: 'Required', trigger: 'blur'},
-          { min: 3, max: 10, message: 'Length should between 3 and 10', trigger: 'blur'}
+          { min: 3, max: 20, message: 'Length should between 3 and 20', trigger: 'blur'}
         ]
       }
     }

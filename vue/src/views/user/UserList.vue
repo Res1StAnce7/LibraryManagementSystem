@@ -4,15 +4,15 @@
       <el-input style="width: 240px" placeholder="Name" v-model="params.name"></el-input>
       <el-input style="width: 240px; margin-left: 5px" placeholder="Phone" v-model="params.phone"></el-input>
       <el-button style="margin-left: 5px" type="primary" @click="load"><i class="el-icon-search"></i> Search</el-button>
-      <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Rest</el-button>
+      <el-button style="margin-left: 5px" type="warning" @click="reset"><i class="el-icon-refresh"></i> Reset</el-button>
     </div>
     <el-table :data="tableData" stripe>
       <el-table-column prop="id" label="id" width="80"></el-table-column>
-      <el-table-column prop="username" label="Username"></el-table-column>
+      <el-table-column prop="username" label="Username" width="130"></el-table-column>
       <el-table-column prop="name" label="Name"></el-table-column>
       <el-table-column prop="age" label="Age"></el-table-column>
       <el-table-column prop="address" label="Address"></el-table-column>
-      <el-table-column prop="phone" label="Phone"></el-table-column>
+      <el-table-column prop="phone" label="Phone" width="110"></el-table-column>
       <el-table-column prop="Gender" label="Gender"></el-table-column>
       <el-table-column prop="account" label="Point"></el-table-column>
       <el-table-column label="Status">
@@ -39,7 +39,8 @@
           </el-button>
           <el-popconfirm
               title="Are you sure to delete this user?"
-              @confirm="del(scope.row.id)"
+              confirmButtonText="Confirm"
+              cancelButtonText="Cancel"
           >
             <el-button type="danger" slot="reference" style="margin-left: 0; margin-right: 15px; margin-top: 10px; width: 80px; text-align: center">
               Delete

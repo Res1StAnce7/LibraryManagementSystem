@@ -23,13 +23,13 @@ import * as echarts from 'echarts'
 
 const option = {
   title: {
-    text: 'Book Borrowing and Returning Statistics'
+    text: 'Book Statistics'
   },
   tooltip: {
     trigger: 'axis'
   },
   legend: {
-    data: ['Number of Borrowing', 'Number of Returning']
+    data: ['Number of Borrowed', 'Number of Returned']
   },
   grid: {
     left: '3%',
@@ -52,14 +52,14 @@ const option = {
   },
   series: [
     {
-      name: 'Number of Borrowing',
+      name: 'Number of Borrowed',
       type: 'line',
       stack: 'total',
       smooth: true,
       data: []
     },
     {
-      name: 'Number of Returning',
+      name: 'Number of Returned',
       type: 'line',
       stack: 'total',
       smooth: true,

@@ -13,7 +13,7 @@
       <el-table-column prop="id" label="ID" width="80"></el-table-column>
       <el-table-column prop="username" label="Name"></el-table-column>
       <el-table-column prop="phone" label="Phone"></el-table-column>
-      <el-table-column prop="email" label="Email"></el-table-column>
+      <el-table-column prop="email" label="Email" width="200"></el-table-column>
       <el-table-column prop="createtime" label="Time of Creation"></el-table-column>
       <el-table-column prop="updatetime" label="Time of Update"></el-table-column>
       <el-table-column label="Status" width="100">
@@ -32,7 +32,8 @@
           <el-popconfirm
               style="margin-left: 5px"
               title="Are you sure to delete this admin?"
-              @confirm="del(scope.row.id)"
+              confirmButtonText="Confirm"
+              cancelButtonText="Cancel"
           >
             <el-button type="danger" slot="reference">Delete</el-button>
           </el-popconfirm>

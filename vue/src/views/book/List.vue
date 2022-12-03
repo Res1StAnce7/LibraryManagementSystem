@@ -34,7 +34,8 @@
             <el-popconfirm
                style="margin-left: 0"
                title="Are you sure to delete this book?"
-               @confirm="del(scope.row.id)"
+               confirmButtonText="Confirm"
+               cancelButtonText="Cancel"
            >
              <el-button type="danger" slot="reference" style="width: 60px; margin-top: 10px; text-align: center">
                Delete
