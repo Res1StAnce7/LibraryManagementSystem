@@ -21,7 +21,8 @@
               style="margin-left: 10px"
               title="Are you sure to delete this category? "
               confirmButtonText="Confirm"
-              cancelButtonText="Cancel">
+              cancelButtonText="Cancel"
+              @confirm="del(scope.row.id)">
             <el-button type="danger" slot="reference" style="margin-top: 10px">Delete</el-button>
           </el-popconfirm>
         </template>

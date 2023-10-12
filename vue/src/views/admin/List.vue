@@ -34,7 +34,7 @@
               title="Are you sure to delete this admin?"
               confirmButtonText="Confirm"
               cancelButtonText="Cancel"
-          >
+              @confirm="del(scope.row.id)">
             <el-button type="danger" slot="reference">Delete</el-button>
           </el-popconfirm>
           <el-button style="margin-top: 10px" type="warning" @click="handleChangePass(scope.row)">Change Password</el-button>

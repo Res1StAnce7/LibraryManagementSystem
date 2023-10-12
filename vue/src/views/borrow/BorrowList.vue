@@ -40,7 +40,7 @@
               title="Are you sure to delete this record?"
               confirmButtonText="Confirm"
               cancelButtonText="Cancel"
-          >
+              @confirm="del(scope.row.id)">
             <el-button type="danger" slot="reference">Delete</el-button>
           </el-popconfirm>
         </template>
