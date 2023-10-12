@@ -41,7 +41,7 @@
               title="Are you sure to delete this user?"
               confirmButtonText="Confirm"
               cancelButtonText="Cancel"
-          >
+              @confirm="del(scope.row.id)">
             <el-button type="danger" slot="reference" style="margin-left: 0; margin-right: 15px; margin-top: 10px; width: 80px; text-align: center">
               Delete
             </el-button>
